@@ -16,10 +16,18 @@ const Todos = () => {
     });
   };
 
+  const deleteTodoHandler = (id: string) => {
+    setTodos((prevTodos) => {
+      const updatedTodos = prevTodos.filter((todo) => todo.id !== id);
+      localStorage.setItem('todos', JSON.stringify(updatedTodos));
+      return updatedTodos;
+    });
+  };
+
   return (
-    <div>
+    <div className="container mx-auto">
       <AddTodo addTodoHandler={addTodoHandler} />
-      <TodoList todos={todos} />
+      <TodoList todos={todos} deleteTodoHandler={deleteTodoHandler} />
     </div>
   );
 };

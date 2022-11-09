@@ -1,24 +1,44 @@
 import React from 'react';
 import Todo from './Todo';
 
-const TodoList: React.FC<{ todos: Todo[] }> = (props) => {
+const TodoList: React.FC<{ todos: Todo[]; deleteTodoHandler: (id: string) => void }> = (props) => {
+  const deleteHandler = (id: string) => {
+    props.deleteTodoHandler(id);
+  };
+
   return (
-    <div>
-      <h2>All Todos</h2>
-      <ul>
-        {props.todos.map((todo) => (
-          <li key={todo.id}>
-            <div
-              className={`${todo.priority === 'low' && 'bg-slate-500'} ${
-                todo.priority === 'medium' && 'bg-teal-600'
-              } ${todo.priority === 'high' && 'bg-red-500'} text-white`}>
-              {todo.text}
-              <span>{todo.time}</span>
-              <span>{todo.priority}</span>
-            </div>
-          </li>
-        ))}
-      </ul>
+    <div className="mt-12">
+      <h2 className="text-orange-600 font-bold text-center text-2xl py-4">All Todos</h2>
+      <table className="w-full border border-orange-600 rounded-sm border-separate text-white">
+        <thead>
+          <tr className="bg-orange-600">
+            <th className="py-2">Text</th>
+            <th className="py-2">Priority</th>
+            <th className="py-2">Time</th>
+            <th className="py-2">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {props.todos.map((todo) => (
+            <tr
+              key={todo.id}
+              className={`${todo.priority === 'low' && 'bg-yellow-200 text-gray-700'} ${
+                todo.priority === 'medium' && 'bg-yellow-600'
+              } ${todo.priority === 'high' && 'bg-red-900'} border-b border-gray-300 text-center`}>
+              <td className="py-2">{todo.text}</td>
+              <td className="py-2">{todo.priority}</td>
+              <td className="py-2">{todo.time}</td>
+              <td className="py-2">
+                <button
+                  className="bg-zinc-800 rounded py-1 px-2 text-white"
+                  onClick={deleteHandler.bind(null, todo.id)}>
+                  Delete
+                </button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 };
