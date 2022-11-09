@@ -4,12 +4,15 @@ import TodoList from './TodoList';
 import Todo from './Todo';
 
 const Todos = () => {
-  const [todos, setTodos] = useState<Todo[]>([]);
+  let savedTodos = JSON.parse(localStorage.getItem('todos') || '[]');
+  const [todos, setTodos] = useState<Todo[]>(savedTodos);
 
   const addTodoHandler = (text: string, priority: string, time: string) => {
     const newTodo = new Todo(text, priority, time);
     setTodos((prevTodos) => {
-      return prevTodos.concat(newTodo);
+      savedTodos = [...prevTodos, newTodo];
+      localStorage.setItem('todos', JSON.stringify(savedTodos));
+      return savedTodos;
     });
   };
 
