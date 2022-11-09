@@ -22,9 +22,11 @@ const TodoList: React.FC<{ todos: Todo[]; deleteTodoHandler: (id: string) => voi
           {props.todos.map((todo) => (
             <tr
               key={todo.id}
-              className={`${todo.priority === 'low' && 'bg-yellow-200 text-gray-700'} ${
-                todo.priority === 'medium' && 'bg-yellow-600'
-              } ${todo.priority === 'high' && 'bg-red-900'} border-b border-gray-300 text-center`}>
+              className={`${
+                todo.priority === 'low' && 'bg-yellow-200 text-gray-700 font-semibold'
+              } ${todo.priority === 'medium' && 'bg-yellow-600'} ${
+                todo.priority === 'high' && 'bg-amber-700'
+              } border-b border-gray-300 text-center`}>
               <td className="py-2">{todo.text}</td>
               <td className="py-2">{todo.priority}</td>
               <td className="py-2">{todo.time}</td>
