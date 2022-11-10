@@ -16,6 +16,32 @@ const Todos = () => {
     });
   };
 
+  const changeStatusHandler = (id: string) => {
+    setTodos((prevTodos) => {
+      const updatedTodos = prevTodos.map((todo) => {
+        if (todo.id === id) {
+          todo.completed = true;
+        }
+        return todo;
+      });
+      localStorage.setItem('todos', JSON.stringify(updatedTodos));
+      return updatedTodos;
+    });
+  };
+
+  const undoCompletedHandler = (id: string) => {
+    setTodos((prevTodos) => {
+      const updatedTodos = prevTodos.map((todo) => {
+        if (todo.id === id) {
+          todo.completed = false;
+        }
+        return todo;
+      });
+      localStorage.setItem('todos', JSON.stringify(updatedTodos));
+      return updatedTodos;
+    });
+  };
+
   const deleteTodoHandler = (id: string) => {
     setTodos((prevTodos) => {
       const updatedTodos = prevTodos.filter((todo) => todo.id !== id);
@@ -27,7 +53,12 @@ const Todos = () => {
   return (
     <div className="container mx-auto">
       <AddTodo addTodoHandler={addTodoHandler} />
-      <TodoList todos={todos} deleteTodoHandler={deleteTodoHandler} />
+      <TodoList
+        todos={todos}
+        deleteTodoHandler={deleteTodoHandler}
+        changeStatusHandler={changeStatusHandler}
+        undoCompletedHandler={undoCompletedHandler}
+      />
     </div>
   );
 };
