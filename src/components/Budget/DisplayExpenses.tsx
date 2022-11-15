@@ -22,6 +22,15 @@ const DisplayExpenses: React.FC<{ expenses: Expense[] }> = (props) => {
             </tr>
           ))}
         </tbody>
+        <tfoot className="bg-orange-600 text-center">
+          <tr>
+            <td className="py-2">Total</td>
+            <td className="py-2">
+              {props.expenses.reduce((total, expense) => total + expense.amount, 0)}
+            </td>
+            <td className="py-2"></td>
+          </tr>
+        </tfoot>
       </table>
     </div>
   );
