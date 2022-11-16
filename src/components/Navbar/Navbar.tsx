@@ -24,6 +24,11 @@ const Navbar = () => {
             Budget tracker
           </Link>
         </li>
+        <li>
+          <Link to="/notes" className="text-white text-xl">
+            Notes
+          </Link>
+        </li>
       </ul>
     </nav>
   );
