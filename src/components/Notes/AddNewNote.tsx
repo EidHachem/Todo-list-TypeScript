@@ -7,7 +7,11 @@ const AddNewNote: React.FC<{ createNote: (title: string, content: string) => voi
     e.preventDefault();
     const enteredTitle = titleRef.current!.value;
     const enteredContent = contentRef.current!.value;
-    props.createNote(enteredTitle, enteredContent);
+    if (enteredTitle.trim().length !== 0 && enteredContent.trim().length !== 0) {
+      props.createNote(enteredTitle, enteredContent);
+      titleRef.current!.value = '';
+      contentRef.current!.value = '';
+    }
   };
   return (
     <div className="mx-auto max-w-[50%]">
