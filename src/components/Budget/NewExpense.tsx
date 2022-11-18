@@ -30,7 +30,7 @@ const NewExpense: React.FC<{
   return (
     <form className="flex flex-col items-center gap-y-5" onSubmit={submitHandler}>
       <div className="w-[30em] flex justify-between items-center">
-        <label htmlFor="title" className="text-yellow-400 text-xl font-semibold">
+        <label htmlFor="title" className="text-amber-900 text-xl font-semibold">
           Title
         </label>
         <input
@@ -42,7 +42,7 @@ const NewExpense: React.FC<{
         />
       </div>
       <div className="w-[30em] flex justify-between items-center">
-        <label htmlFor="amount" className="text-yellow-400 text-xl font-semibold">
+        <label htmlFor="amount" className="text-amber-900 text-xl font-semibold">
           Amount
         </label>
         <input
@@ -56,7 +56,7 @@ const NewExpense: React.FC<{
         />
       </div>
       <div className="w-[30em] flex justify-between items-center">
-        <label htmlFor="date" className="text-yellow-400 text-xl font-semibold">
+        <label htmlFor="date" className="text-amber-900 text-xl font-semibold">
           Date
         </label>
         <input type="date" id="date" className="form-input min-w-[80%]" ref={dateRef} />
