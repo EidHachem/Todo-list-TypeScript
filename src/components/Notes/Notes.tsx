@@ -17,10 +17,17 @@ const Notes: React.FC = () => {
       localStorage.setItem('notes', JSON.stringify([...notesList, note]));
     }
   };
+
+  const deleteNoteHandler = (id: string) => {
+    const newNotes = notesList.filter((note) => note.id !== id);
+    setNotesList(newNotes);
+    localStorage.setItem('notes', JSON.stringify(newNotes));
+  };
+
   return (
     <div>
       <AddNewNote createNote={createNoteHandler} />
-      <DisplayNotes notes={notesList} />
+      <DisplayNotes notes={notesList} deleteNote={deleteNoteHandler} />
     </div>
   );
 };
