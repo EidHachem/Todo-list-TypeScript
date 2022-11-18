@@ -19,7 +19,7 @@ const TodoList: React.FC<{
   };
 
   return (
-    <div className="mt-12">
+    <div className="container mx-auto mt-12 max-w-5xl">
       <h2 className="text-orange-600 font-bold text-center text-2xl py-4">All Todos</h2>
       <table className="w-full border border-orange-600 rounded-sm border-separate text-white">
         <thead>
