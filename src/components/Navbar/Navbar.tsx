@@ -29,6 +29,11 @@ const Navbar = () => {
             Notes
           </Link>
         </li>
+        <li>
+          <Link to="/currency-converter" className="text-white text-xl">
+            Currency Converter
+          </Link>
+        </li>
       </ul>
     </nav>
   );
