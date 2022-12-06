@@ -5,6 +5,7 @@ import Todos from './components/Todo/Todos';
 import Expenses from './components/Budget/Expenses';
 import Home from './components/Home/Home';
 import Notes from './components/Notes/Notes';
+import Converter from './components/Curruncy-converter/Converter';
 
 const App: FC = () => {
   return (
@@ -15,6 +16,7 @@ const App: FC = () => {
         <Route path="/todos" element={<Todos />} />
         <Route path="/expenses" element={<Expenses />} />
         <Route path="/notes" element={<Notes />} />
+        <Route path="/currency-converter" element={<Converter />} />
         <Route path="*" element={<div>Not found</div>} />
       </Routes>
     </div>
