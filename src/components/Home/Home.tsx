@@ -25,6 +25,12 @@ const Home = () => {
             <p className="text-center text-2xl text-white">Notes</p>
           </div>
         </Link>
+        <Link to="/currency-converter" className="hover:scale-110">
+          <div className="border-2 border-white flex flex-col items-center justify-center gap-4 py-10">
+            <FaMoneyBill className="text-6xl text-orange-600 mx-auto block" />
+            <p className="text-center text-2xl text-white">Currency Converter</p>
+          </div>
+        </Link>
       </div>
     </div>
   );
